@@ -1,0 +1,1 @@
+This is a potentially modified clone of the Majenko library for the MCP23S17
