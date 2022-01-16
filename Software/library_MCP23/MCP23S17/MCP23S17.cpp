@@ -69,13 +69,15 @@
 
 #define    OPCODEW       (0b01000000)  // Opcode for MCP23S17 with LSB (bit0) set to write (0), address OR'd in later, bits 1-3
 #define    OPCODER       (0b01000001)  // Opcode for MCP23S17 with LSB (bit0) set to read (1), address OR'd in later, bits 1-3
-#define    ADDR_ENABLE   (0b00001000)  // Configuration register for MCP23S17, the only thing we change is enabling hardware addressing
+
+// Nathan added bit 4 here which disables signal slew rate limiting. 
+#define    ADDR_ENABLE   (0b00011000)  // Configuration register for MCP23S17, the only thing we change is enabling hardware addressing
 
 // Constructor to instantiate an instance of MCP to a specific chip (address)
 
-MCP::MCP(uint8_t address, uint8_t ss) {
-  _address     = constrain(address, 0, 7);
-  _ss          = ss;
+MCP::MCP() {
+  _address     = 0;						// Nathan got rid of this from instantiate function
+  _ss          = 0;						// Nathan got rid of this from instantiate function
   _modeCache   = 0xFFFF;                // Default I/O mode is all input, 0xFFFF
   _outputCache = 0x0000;                // Default output state is all off, 0x0000
   _pullupCache = 0x0000;                // Default pull-up state is all off, 0x0000
