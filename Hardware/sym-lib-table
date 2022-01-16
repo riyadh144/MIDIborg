@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name "POWER_")(type "KiCad")(uri "${KIPRJMOD}/POWER_.kicad_sym")(options "")(descr ""))
+  (lib (name "Chips")(type "KiCad")(uri "${KIPRJMOD}/ComponentsLibrary/Chips.kicad_sym")(options "")(descr ""))
 )
