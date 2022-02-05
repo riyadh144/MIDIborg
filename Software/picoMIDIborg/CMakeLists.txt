@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
-include(pico_sdk_import.cmake)
+include(pico_sdk_import.cmake tusb_config.h)
+
 
 set(projname "picoMIDIborg")
 
@@ -16,6 +17,6 @@ add_executable(${projname}
         extrafunc.c
         )
 
-target_link_libraries(${projname} pico_stdlib)
+target_link_libraries(${projname} pico_stdlib tinyusb_device tinyusb_board)
 pico_add_extra_outputs(${projname})
-
+include_directories(include)
